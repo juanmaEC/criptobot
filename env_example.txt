@@ -1,0 +1,53 @@
+# Binance API Configuration
+BINANCE_API_KEY=tu_api_key_aqui
+BINANCE_SECRET_KEY=tu_secret_key_aqui
+BINANCE_TESTNET=true
+
+# Database Configuration
+DATABASE_URL=postgresql://user:password@localhost/cryptopump
+
+# Redis Configuration (for Celery)
+REDIS_URL=redis://localhost:6379/0
+
+# Telegram Bot Configuration
+TELEGRAM_BOT_TOKEN=tu_bot_token_aqui
+TELEGRAM_CHAT_ID=tu_chat_id_aqui
+
+# Trading Parameters
+CAPITAL_PERCENTAGE=0.01
+MAX_CONCURRENT_TRADES=5
+MAX_DAILY_LOSS=0.05
+
+# Pump Detection Parameters
+PUMP_THRESHOLD_PERCENT=5.0
+PUMP_TIME_WINDOW=300
+PUMP_VOLUME_MULTIPLIER=2.0
+
+# Top Movers Parameters
+TOP_MOVERS_THRESHOLD=2.5
+TOP_MOVERS_TIME_WINDOW=1800
+
+# Risk Management
+STOP_LOSS_PERCENT=2.5
+TAKE_PROFIT_PERCENT=5.0
+TRAILING_STOP_PERCENT=2.0
+COOLDOWN_AFTER_LOSS=3600
+
+# Technical Analysis Parameters
+EMA_FAST=9
+EMA_SLOW=21
+RSI_PERIOD=14
+MACD_FAST=12
+MACD_SLOW=26
+MACD_SIGNAL=9
+BOLLINGER_PERIOD=20
+BOLLINGER_STD=2.0
+ATR_PERIOD=14
+
+# AI/ML Parameters
+LSTM_SEQUENCE_LENGTH=60
+LSTM_PREDICTION_HORIZON=10
+
+# Logging
+LOG_LEVEL=INFO
+LOG_FILE=logs/cryptopump.log

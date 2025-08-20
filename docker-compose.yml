@@ -1,0 +1,120 @@
+version: '3.8'
+
+services:
+  # Base de datos PostgreSQL
+  postgres:
+    image: postgres:15-alpine
+    container_name: cryptopump_postgres
+    environment:
+      POSTGRES_DB: cryptopump
+      POSTGRES_USER: cryptopump_user
+      POSTGRES_PASSWORD: cryptopump_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - cryptopump_network
+    restart: unless-stopped
+
+  # Redis para Celery
+  redis:
+    image: redis:7-alpine
+    container_name: cryptopump_redis
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - cryptopump_network
+    restart: unless-stopped
+
+  # Aplicación principal
+  app:
+    build: .
+    container_name: cryptopump_app
+    environment:
+      - DATABASE_URL=postgresql://cryptopump_user:cryptopump_password@postgres:5432/cryptopump
+      - REDIS_URL=redis://redis:6379/0
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+      - ./models:/app/models
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - cryptopump_network
+    restart: unless-stopped
+    command: python main.py
+
+  # Celery Worker
+  celery_worker:
+    build: .
+    container_name: cryptopump_celery_worker
+    environment:
+      - DATABASE_URL=postgresql://cryptopump_user:cryptopump_password@postgres:5432/cryptopump
+      - REDIS_URL=redis://redis:6379/0
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+      - ./models:/app/models
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - cryptopump_network
+    restart: unless-stopped
+    command: celery -A celery_app worker --loglevel=info --concurrency=2
+
+  # Celery Beat (Scheduler)
+  celery_beat:
+    build: .
+    container_name: cryptopump_celery_beat
+    environment:
+      - DATABASE_URL=postgresql://cryptopump_user:cryptopump_password@postgres:5432/cryptopump
+      - REDIS_URL=redis://redis:6379/0
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+      - ./models:/app/models
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - cryptopump_network
+    restart: unless-stopped
+    command: celery -A celery_app beat --loglevel=info
+
+  # Flower para monitoreo de Celery (opcional)
+  flower:
+    build: .
+    container_name: cryptopump_flower
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+    env_file:
+      - .env
+    depends_on:
+      - redis
+    networks:
+      - cryptopump_network
+    restart: unless-stopped
+    command: celery -A celery_app flower --port=5555
+    ports:
+      - "5555:5555"
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  cryptopump_network:
+    driver: bridge
