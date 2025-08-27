@@ -38,8 +38,30 @@ celery_app.conf.update(
 
 # Inicializar componentes
 config = Config()
-binance_client = BinanceClient(config)
-telegram_notifier = TelegramNotifier(config)
+
+# Inicializar BinanceClient de forma más robusta
+try:
+    if config.BINANCE_API_KEY and config.BINANCE_SECRET_KEY:
+        binance_client = BinanceClient(config)
+        logger.info("BinanceClient initialized successfully")
+    else:
+        logger.warning("Binance API credentials not configured. Some features may not work.")
+        binance_client = None
+except Exception as e:
+    logger.error(f"Failed to initialize BinanceClient: {e}")
+    binance_client = None
+
+# Inicializar TelegramNotifier de forma más robusta
+try:
+    if config.TELEGRAM_BOT_TOKEN and config.TELEGRAM_CHAT_ID:
+        telegram_notifier = TelegramNotifier(config)
+        logger.info("TelegramNotifier initialized successfully")
+    else:
+        logger.warning("Telegram credentials not configured. Notifications will be disabled.")
+        telegram_notifier = None
+except Exception as e:
+    logger.error(f"Failed to initialize TelegramNotifier: {e}")
+    telegram_notifier = None
 
 # Crear tablas de base de datos
 create_tables()
@@ -55,6 +77,11 @@ def scan_pumps(self):
         
         # Inicializar detector de pumps
         pump_detector = PumpDetector(config, db)
+        
+        # Verificar que binance_client esté disponible
+        if not binance_client:
+            logger.error("BinanceClient not available. Cannot perform pump scan.")
+            return {'pumps_detected': 0, 'error': 'BinanceClient not available'}
         
         # Obtener símbolos con mayor volumen
         symbols = get_high_volume_symbols()
@@ -76,7 +103,8 @@ def scan_pumps(self):
                     pumps_detected += 1
                     
                     # Notificar por Telegram
-                    telegram_notifier.notify_pump_detected(pump_info)
+                    if telegram_notifier:
+                        telegram_notifier.notify_pump_detected(pump_info)
                     
                     # Verificar si debemos operar
                     if pump_detector.should_trade_pump(pump_info):
@@ -106,7 +134,8 @@ def scan_pumps(self):
         
     except Exception as e:
         logger.error(f"Error in pump scan: {e}")
-        telegram_notifier.notify_error(str(e), "Pump Scan")
+        if telegram_notifier:
+            telegram_notifier.notify_error(str(e), "Pump Scan")
         raise
 
 @celery_app.task(bind=True)
@@ -121,6 +150,11 @@ def scan_top_movers(self):
         # Inicializar estrategia de top movers
         top_movers_strategy = TopMoversStrategy(config, db)
         
+        # Verificar que binance_client esté disponible
+        if not binance_client:
+            logger.error("BinanceClient not available. Cannot perform top movers scan.")
+            return {'trades_executed': 0, 'error': 'BinanceClient not available'}
+        
         # Obtener datos de todos los símbolos
         all_market_data = get_all_market_data()
         
@@ -132,7 +166,8 @@ def scan_top_movers(self):
         for analysis in top_movers:
             try:
                 # Notificar por Telegram
-                telegram_notifier.notify_top_mover_detected(analysis)
+                if telegram_notifier:
+                    telegram_notifier.notify_top_mover_detected(analysis)
                 
                 # Verificar si debemos operar
                 if top_movers_strategy.should_trade_top_mover(analysis):
@@ -161,7 +196,8 @@ def scan_top_movers(self):
         
     except Exception as e:
         logger.error(f"Error in top movers scan: {e}")
-        telegram_notifier.notify_error(str(e), "Top Movers Scan")
+        if telegram_notifier:
+            telegram_notifier.notify_error(str(e), "Top Movers Scan")
         raise
 
 @celery_app.task
@@ -199,7 +235,8 @@ def execute_pump_trade(symbol: str, pump_info: Dict, position_size: float):
         
         if result:
             # Notificar ejecución
-            telegram_notifier.notify_trade_executed(trade_info)
+            if telegram_notifier:
+                telegram_notifier.notify_trade_executed(trade_info)
             
             # Guardar en base de datos
             save_trade_to_db.delay(symbol, 'pump', trade_info, result)
@@ -210,7 +247,8 @@ def execute_pump_trade(symbol: str, pump_info: Dict, position_size: float):
         
     except Exception as e:
         logger.error(f"Error executing pump trade for {symbol}: {e}")
-        telegram_notifier.notify_error(str(e), f"Pump Trade - {symbol}")
+        if telegram_notifier:
+            telegram_notifier.notify_error(str(e), f"Pump Trade - {symbol}")
 
 @celery_app.task
 def execute_top_mover_trade(symbol: str, analysis: Dict, position_size: float):
@@ -254,7 +292,8 @@ def execute_top_mover_trade(symbol: str, analysis: Dict, position_size: float):
         
         if result:
             # Notificar ejecución
-            telegram_notifier.notify_trade_executed(trade_info)
+            if telegram_notifier:
+                telegram_notifier.notify_trade_executed(trade_info)
             
             # Guardar en base de datos
             save_trade_to_db.delay(symbol, 'top_movers', trade_info, result)
@@ -265,7 +304,8 @@ def execute_top_mover_trade(symbol: str, analysis: Dict, position_size: float):
         
     except Exception as e:
         logger.error(f"Error executing top mover trade for {symbol}: {e}")
-        telegram_notifier.notify_error(str(e), f"Top Mover Trade - {symbol}")
+        if telegram_notifier:
+            telegram_notifier.notify_error(str(e), f"Top Mover Trade - {symbol}")
 
 @celery_app.task
 def save_trade_to_db(symbol: str, strategy: str, trade_info: Dict, order_result: Dict):
@@ -302,6 +342,11 @@ def monitor_open_trades():
         from datetime import datetime
         
         db = next(get_db())
+        
+        # Verificar que binance_client esté disponible
+        if not binance_client:
+            logger.error("BinanceClient not available. Cannot monitor open trades.")
+            return
         
         # Obtener trades abiertos
         open_trades = db.query(Trade).filter(Trade.status == 'open').all()
@@ -376,7 +421,8 @@ def close_trade(trade_id: int, exit_price: float, reason: str):
             'duration': str(trade.closed_at - trade.created_at)
         }
         
-        telegram_notifier.notify_trade_closed(trade_info)
+        if telegram_notifier:
+            telegram_notifier.notify_trade_closed(trade_info)
         
         logger.info(f"Trade closed: {trade.symbol} - P&L: ${pnl:.2f}")
         
@@ -406,7 +452,11 @@ def send_daily_summary():
         win_rate = (winning_trades / len(daily_trades) * 100) if daily_trades else 0
         
         # Obtener balance
-        balance = binance_client.get_account_balance()
+        if not binance_client:
+            logger.error("BinanceClient not available. Cannot get account balance.")
+            balance = {'total_usdt': 0}
+        else:
+            balance = binance_client.get_account_balance()
         
         summary = {
             'total_pnl': total_pnl,
@@ -421,7 +471,8 @@ def send_daily_summary():
             'date': today.strftime('%Y-%m-%d')
         }
         
-        telegram_notifier.notify_daily_summary(summary)
+        if telegram_notifier:
+            telegram_notifier.notify_daily_summary(summary)
         
     except Exception as e:
         logger.error(f"Error sending daily summary: {e}")
@@ -429,6 +480,10 @@ def send_daily_summary():
 def get_high_volume_symbols() -> List[str]:
     """Obtiene símbolos con mayor volumen"""
     try:
+        if not binance_client:
+            logger.error("BinanceClient not available. Cannot get high volume symbols.")
+            return []
+        
         symbols = binance_client.get_all_symbols()
         high_volume_symbols = []
         
@@ -449,6 +504,10 @@ def get_high_volume_symbols() -> List[str]:
 def get_all_market_data() -> Dict[str, pd.DataFrame]:
     """Obtiene datos de mercado para todos los símbolos"""
     try:
+        if not binance_client:
+            logger.error("BinanceClient not available. Cannot get market data.")
+            return {}
+        
         symbols = get_high_volume_symbols()
         market_data = {}
         

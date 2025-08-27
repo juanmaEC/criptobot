@@ -226,3 +226,4 @@ class BalanceManager:
         return current_balance * 0.95  # 95% del balance actual para seguridad
 
 
+

@@ -68,3 +68,7 @@
 2025-08-27 02:14:15.654 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
 2025-08-27 02:14:43.874 | INFO     | notifications.telegram_bot:initialize_bot:24 - Telegram bot initialized successfully
 2025-08-27 02:14:44.193 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:15:37.816 | INFO     | notifications.telegram_bot:initialize_bot:24 - Telegram bot initialized successfully
+2025-08-27 02:15:38.120 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:16:40.371 | INFO     | notifications.telegram_bot:initialize_bot:24 - Telegram bot initialized successfully
+2025-08-27 02:16:40.694 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}

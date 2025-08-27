@@ -88,16 +88,27 @@ cd cryptoPump
 
 2. **Configurar variables de entorno**:
 ```bash
-cp env_example.txt .env
+# Copiar la plantilla de variables de entorno
+cp env_template.txt .env
+
 # Editar .env con tus configuraciones
+# IMPORTANTE: Configura al menos BINANCE_API_KEY y BINANCE_SECRET_KEY
 ```
 
-3. **Ejecutar con Docker**:
+3. **Ejecutar con Docker** (Recomendado):
+```bash
+# Usar el script de inicio seguro que verifica las configuraciones
+python start_docker_safe.py
+```
+
+**O ejecutar manualmente**:
 ```bash
 # En Windows:
 docker-start.bat start
 
 # En Linux/Mac:
+./docker-start.sh start
+```
 ./docker-start.sh start
 ```
 
@@ -399,21 +410,72 @@ docker-compose down -v
 
 ### Problemas Comunes
 
-1. **Error de conexión a Binance**:
-   - Verificar API keys en `.env`
-   - Comprobar límites de API
+#### ❌ Error: "Failed to initialize BinanceClient"
+**Causa**: Variables de entorno de Binance no configuradas
+**Solución**:
+```bash
+# 1. Crear archivo .env
+cp env_template.txt .env
 
-2. **Error de base de datos**:
-   - Verificar que PostgreSQL esté ejecutándose
-   - Comprobar `DATABASE_URL` en `.env`
+# 2. Editar .env y configurar:
+BINANCE_API_KEY=tu_api_key_aqui
+BINANCE_SECRET_KEY=tu_secret_key_aqui
 
-3. **Celery no ejecuta tareas**:
-   - Verificar que Redis esté ejecutándose
-   - Comprobar `REDIS_URL` en `.env`
+# 3. Reiniciar contenedores
+docker-compose down
+docker-compose up -d
+```
 
-4. **No llegan notificaciones**:
-   - Verificar `TELEGRAM_BOT_TOKEN` y `TELEGRAM_CHAT_ID`
-   - Comprobar que el bot esté iniciado
+#### ❌ Error: "Celery import error"
+**Causa**: Problemas con la inicialización de módulos
+**Solución**:
+```bash
+# 1. Verificar que el archivo .env existe
+ls -la .env
+
+# 2. Usar el script de inicio seguro
+python start_docker_safe.py
+
+# 3. Ver logs para más detalles
+docker-compose logs celery_worker
+```
+
+#### ❌ Error: "Database connection failed"
+**Causa**: PostgreSQL no está ejecutándose
+**Solución**:
+```bash
+# 1. Verificar que todos los servicios estén arriba
+docker-compose ps
+
+# 2. Reiniciar servicios
+docker-compose restart
+
+# 3. Verificar logs de PostgreSQL
+docker-compose logs postgres
+```
+
+#### ❌ Error: "Redis connection failed"
+**Causa**: Redis no está ejecutándose
+**Solución**:
+```bash
+# 1. Verificar estado de Redis
+docker-compose logs redis
+
+# 2. Reiniciar Redis
+docker-compose restart redis
+```
+
+#### ❌ Error: "Telegram notifications not working"
+**Causa**: Credenciales de Telegram no configuradas
+**Solución**:
+```bash
+# 1. Configurar en .env:
+TELEGRAM_BOT_TOKEN=tu_bot_token_aqui
+TELEGRAM_CHAT_ID=tu_chat_id_aqui
+
+# 2. Reiniciar servicios
+docker-compose restart
+```
 
 ### Logs de Debug
 
@@ -422,6 +484,20 @@ docker-compose down -v
 docker-compose logs -f app
 docker-compose logs -f celery_worker
 docker-compose logs -f celery_beat
+```
+
+### 🔧 Scripts de Utilidad
+
+#### Diagnóstico del Sistema
+```bash
+# Ejecutar diagnóstico completo
+python diagnose.py
+```
+
+#### Inicio Seguro
+```bash
+# Inicio con verificación de configuraciones
+python start_docker_safe.py
 ```
 
 ## 📊 Ejemplo de Uso
