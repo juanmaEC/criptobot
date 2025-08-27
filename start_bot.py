@@ -11,11 +11,17 @@ import time
 import signal
 import threading
 from pathlib import Path
+from config import Config
+from notifications.telegram_bot import TelegramNotifier
+from trading.binance_client import BinanceClient
 
 class CryptoPumpStarter:
     def __init__(self):
         self.processes = []
         self.running = False
+        self.config = Config()
+        self.telegram = TelegramNotifier(self.config)
+        self.binance_client = None
         
     def check_dependencies(self):
         """Verifica que las dependencias estén instaladas"""
@@ -65,6 +71,22 @@ class CryptoPumpStarter:
         
         print("✅ Variables de entorno verificadas")
         return True
+    
+    def get_balance_info(self):
+        """Obtiene información del balance actual"""
+        try:
+            if not self.binance_client:
+                self.binance_client = BinanceClient(self.config)
+            
+            balance = self.binance_client.get_account_balance()
+            return balance
+        except Exception as e:
+            print(f"⚠️ Error obteniendo balance: {e}")
+            return {
+                'USDT': self.config.INITIAL_BALANCE,
+                'BTC': 0,
+                'total_usdt': self.config.INITIAL_BALANCE
+            }
     
     def start_redis(self):
         """Inicia Redis si no está ejecutándose"""
@@ -150,6 +172,14 @@ class CryptoPumpStarter:
             for name, process in self.processes:
                 if process.poll() is not None:
                     print(f"⚠️ {name} se ha detenido (código: {process.returncode})")
+                    
+                    # Notificar error crítico por Telegram
+                    if self.config.ENABLE_BOT_STATUS_NOTIFICATIONS:
+                        self.telegram.notify_bot_error(
+                            f"Proceso {name} se ha detenido",
+                            f"Código de salida: {process.returncode}"
+                        )
+                    
                     # Reiniciar proceso si es necesario
                     if name == 'Celery Worker':
                         self.start_celery_worker()
@@ -169,6 +199,8 @@ class CryptoPumpStarter:
 ║  🤖 Iniciando Bot de Trading Algorítmico                    ║
 ║  📊 Pump Detection + Top Movers                             ║
 ║  ⚡ Celery + Celery Beat                                     ║
+║  💰 Saldo Inicial: $200 USDT                                ║
+║  🎯 Objetivo: 75% diario ($150 USDT)                        ║
 ║                                                              ║
 ╚══════════════════════════════════════════════════════════════╝
         """)
@@ -182,6 +214,13 @@ class CryptoPumpStarter:
         
         if not self.start_redis():
             print("⚠️ Continuando sin Redis (algunas funciones pueden no funcionar)")
+        
+        # Obtener balance inicial
+        balance_info = self.get_balance_info()
+        
+        # Notificar inicio del bot por Telegram
+        if self.config.ENABLE_BOT_STATUS_NOTIFICATIONS:
+            self.telegram.notify_bot_started(balance_info)
         
         # Iniciar componentes
         try:
@@ -200,6 +239,12 @@ class CryptoPumpStarter:
 ✅ Celery Worker
 ✅ Celery Beat (Scheduler)
 ✅ Bot Principal
+
+💰 Configuración de Trading:
+• Saldo inicial: $200 USDT
+• Objetivo diario: $150 USDT (75%)
+• Capital por operación: 15%
+• Máximo trades simultáneos: 3
 
 📋 Tareas programadas:
 • Pump Detection (cada 30s)
@@ -229,6 +274,11 @@ class CryptoPumpStarter:
             
         except Exception as e:
             print(f"❌ Error iniciando bot: {e}")
+            
+            # Notificar error por Telegram
+            if self.config.ENABLE_BOT_STATUS_NOTIFICATIONS:
+                self.telegram.notify_bot_error(str(e), "Error durante el inicio")
+            
             self.stop()
             return False
         
@@ -238,6 +288,10 @@ class CryptoPumpStarter:
         """Detiene todos los procesos"""
         print("🛑 Deteniendo bot...")
         self.running = False
+        
+        # Notificar parada del bot por Telegram
+        if self.config.ENABLE_BOT_STATUS_NOTIFICATIONS:
+            self.telegram.notify_bot_stopped("Parada manual del usuario")
         
         for name, process in self.processes:
             try:

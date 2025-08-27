@@ -2,6 +2,7 @@
 """
 Bot de Trading Algorítmico para Detección de Pumps y Top Movers
 Ejecuta 24/7 usando Celery + Celery Beat para scheduler y ejecución asíncrona
+Configurado para saldo inicial de 200 USDT y objetivo del 75% diario
 """
 
 import os
@@ -13,6 +14,7 @@ from config import Config
 from database.models import create_tables
 from notifications.telegram_bot import TelegramNotifier
 from trading.binance_client import BinanceClient
+from trading.balance_manager import BalanceManager
 
 # Configurar logging
 logger.add("logs/bot.log", rotation="1 day", retention="7 days", level="INFO")
@@ -22,6 +24,7 @@ class CryptoPumpBot:
         self.config = Config()
         self.telegram_notifier = TelegramNotifier(self.config)
         self.binance_client = BinanceClient(self.config)
+        self.balance_manager = BalanceManager(self.config)
         self.running = False
         
     def initialize(self):
@@ -32,6 +35,7 @@ class CryptoPumpBot:
             # Crear directorios necesarios
             os.makedirs("logs", exist_ok=True)
             os.makedirs("models", exist_ok=True)
+            os.makedirs("data", exist_ok=True)
             
             # Crear tablas de base de datos
             create_tables()
@@ -41,27 +45,28 @@ class CryptoPumpBot:
             balance = self.binance_client.get_account_balance()
             logger.info(f"✅ Conexión Binance establecida - Balance: ${balance['total_usdt']:.2f}")
             
-            # Enviar mensaje de inicio por Telegram
-            self.telegram_notifier.send_message_sync("""
-🤖 <b>CRYPTOPUMP BOT INICIADO</b> 🤖
-
-✅ Bot iniciado correctamente
-💰 Balance: ${:.2f}
-🕐 Hora: {}
-
-📋 <b>Estrategias Activas:</b>
-• Pump Detection (cada 30s)
-• Top Movers (cada 5min)
-• Monitoreo de Trades (cada 1min)
-• Resumen Diario (00:00 UTC)
-            """.format(balance['total_usdt'], time.strftime('%H:%M:%S')))
+            # Obtener información de balance actual
+            balance_summary = self.balance_manager.get_balance_summary()
+            daily_progress = self.balance_manager.get_daily_progress()
             
-            logger.info("✅ Bot inicializado correctamente")
+            # Enviar mensaje de inicio por Telegram con información detallada
+            if self.config.ENABLE_BOT_STATUS_NOTIFICATIONS:
+                self.telegram_notifier.notify_bot_started(balance)
+            
+            logger.info(f"""
+✅ Bot inicializado correctamente
+💰 Saldo inicial: ${self.config.INITIAL_BALANCE:.2f} USDT
+🎯 Objetivo diario: ${self.config.DAILY_TARGET_AMOUNT:.2f} USDT ({self.config.DAILY_TARGET_PERCENTAGE}%)
+📊 Saldo actual: ${balance['total_usdt']:.2f} USDT
+📈 Progreso diario: {daily_progress['progress_percent']:.1f}%
+            """)
+            
             return True
             
         except Exception as e:
             logger.error(f"❌ Error inicializando bot: {e}")
-            self.telegram_notifier.notify_error(str(e), "Inicialización")
+            if self.config.ENABLE_BOT_STATUS_NOTIFICATIONS:
+                self.telegram_notifier.notify_bot_error(str(e), "Inicialización")
             return False
     
     def start(self):
@@ -83,6 +88,24 @@ class CryptoPumpBot:
             while self.running:
                 time.sleep(60)  # Verificar estado cada minuto
                 
+                # Verificar progreso hacia objetivo diario
+                daily_progress = self.balance_manager.get_daily_progress()
+                
+                # Si se alcanzó el objetivo diario, enviar notificación
+                if self.balance_manager.is_daily_target_reached():
+                    logger.info("🎯 ¡Objetivo diario alcanzado!")
+                    if self.config.ENABLE_BOT_STATUS_NOTIFICATIONS:
+                        self.telegram_notifier.send_message_sync(f"""
+🎯 <b>¡OBJETIVO DIARIO ALCANZADO!</b> 🎯
+
+💰 <b>Saldo Actual:</b> ${daily_progress['current_balance']:.2f} USDT
+📈 <b>P&L Diario:</b> ${daily_progress['daily_pnl']:.2f} ({daily_progress['daily_pnl_percent']:.2f}%)
+🎯 <b>Objetivo:</b> ${self.config.DAILY_TARGET_AMOUNT:.2f} USDT
+📊 <b>Progreso:</b> {daily_progress['progress_percent']:.1f}%
+
+🕐 <i>Alcanzado: {time.strftime('%H:%M:%S')}</i>
+                        """)
+                
                 # Aquí podrías agregar lógica de monitoreo adicional
                 # como verificar que las tareas de Celery estén ejecutándose
                 
@@ -90,6 +113,8 @@ class CryptoPumpBot:
             logger.info("⚠️ Recibida señal de interrupción")
         except Exception as e:
             logger.error(f"❌ Error en el bucle principal: {e}")
+            if self.config.ENABLE_BOT_STATUS_NOTIFICATIONS:
+                self.telegram_notifier.notify_bot_error(str(e), "Bucle principal")
         finally:
             self.stop()
     
@@ -98,15 +123,21 @@ class CryptoPumpBot:
         logger.info("🛑 Deteniendo bot...")
         self.running = False
         
-        # Enviar mensaje de parada
-        self.telegram_notifier.send_message_sync("""
-🛑 <b>CRYPTOPUMP BOT DETENIDO</b> 🛑
-
-⏰ Detenido: {}
-📊 Estado: Finalizado correctamente
-            """.format(time.strftime('%H:%M:%S')))
+        # Obtener balance final
+        balance_summary = self.balance_manager.get_balance_summary()
+        daily_progress = self.balance_manager.get_daily_progress()
         
-        logger.info("✅ Bot detenido correctamente")
+        # Enviar mensaje de parada con información de balance
+        if self.config.ENABLE_BOT_STATUS_NOTIFICATIONS:
+            self.telegram_notifier.notify_bot_stopped("Parada manual del usuario")
+        
+        logger.info(f"""
+✅ Bot detenido correctamente
+💰 Saldo final: ${balance_summary['current_balance']:.2f} USDT
+📈 P&L diario: ${daily_progress['daily_pnl']:.2f} ({daily_progress['daily_pnl_percent']:.2f}%)
+📊 Trades hoy: {balance_summary['trades_today']}
+🎯 Progreso objetivo: {daily_progress['progress_percent']:.1f}%
+        """)
     
     def signal_handler(self, signum, frame):
         """Maneja señales de sistema"""
@@ -122,6 +153,8 @@ def main():
 ║  🤖 Bot de Trading Algorítmico para Detección de Pumps      ║
 ║  📊 Top Movers con Análisis Técnico + IA                    ║
 ║  ⚡ Ejecución 24/7 con Celery + Celery Beat                 ║
+║  💰 Saldo Inicial: $200 USDT                                ║
+║  🎯 Objetivo: 75% diario ($150 USDT)                        ║
 ║                                                              ║
 ╚══════════════════════════════════════════════════════════════╝
     """)
@@ -150,6 +183,8 @@ BINANCE_API_KEY=tu_api_key
 BINANCE_SECRET_KEY=tu_secret_key
 TELEGRAM_BOT_TOKEN=tu_bot_token
 TELEGRAM_CHAT_ID=tu_chat_id
+
+💡 Copia env_example.txt a .env y edita las variables
         """)
         sys.exit(1)
     

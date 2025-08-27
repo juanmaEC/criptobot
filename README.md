@@ -2,27 +2,31 @@
 
 Un bot de trading algorítmico modular y avanzado para Binance que opera 24/7, implementando estrategias de detección de pumps y análisis de top movers con inteligencia artificial.
 
+**🎯 Configurado para saldo inicial de 200 USDT y objetivo del 75% diario ($150 USDT)**
+
 ## 🚀 Características
 
 ### Estrategias de Trading
-- **Pump Detection**: Detecta subidas rápidas (>5% en ≤5 minutos) con alto volumen
-- **Top Movers**: Analiza movimientos ≥2-3% en 30 minutos con filtros anti-scam
+- **Pump Detection**: Detecta subidas rápidas (>3% en ≤3 minutos) con alto volumen
+- **Top Movers**: Analiza movimientos ≥1.5% en 15 minutos con filtros anti-scam
 - **Análisis Técnico**: EMA, RSI, MACD, Bollinger Bands, ATR
 - **Inteligencia Artificial**: LSTM para predicción de precios y PPO para optimización de entradas
 
-### Gestión de Riesgo
-- Stop Loss y Take Profit automáticos
-- Trailing Stop dinámico
-- Tamaño de posición basado en volatilidad
-- Máximo número de operaciones simultáneas
-- Cooldown tras pérdidas
-- Límites diarios de pérdida
+### Gestión de Riesgo (Configuración Agresiva)
+- **Saldo Inicial**: 200 USDT
+- **Objetivo Diario**: 75% ($150 USDT)
+- **Capital por Operación**: 15% del balance disponible
+- **Stop Loss**: 2% por operación
+- **Take Profit**: 4% por operación
+- **Máximo Trades Simultáneos**: 3
+- **Límite de Pérdida Diaria**: 10%
+- **Cooldown tras Pérdidas**: 30 minutos
 
 ### Infraestructura
 - **24/7 Operación**: Celery + Celery Beat para tareas asíncronas
 - **Base de Datos**: PostgreSQL para persistencia de datos
 - **Cache**: Redis para Celery y datos temporales
-- **Notificaciones**: Telegram en tiempo real
+- **Notificaciones**: Telegram en tiempo real con información detallada
 - **Logging**: Sistema completo de logs
 - **Monitoreo**: Flower para supervisión de Celery
 
@@ -117,22 +121,32 @@ TELEGRAM_BOT_TOKEN=tu_bot_token
 TELEGRAM_CHAT_ID=tu_chat_id
 ```
 
-### Parámetros de Trading
+### Parámetros de Trading (Configuración Agresiva)
 
 ```env
+# Cuenta y Objetivos
+INITIAL_BALANCE=200.0
+DAILY_TARGET_PERCENTAGE=75.0
+
 # Capital y Riesgo
-CAPITAL_PERCENTAGE=5.0
+CAPITAL_PERCENTAGE=0.15
 MAX_CONCURRENT_TRADES=3
-DAILY_LOSS_LIMIT=10.0
+MAX_DAILY_LOSS=0.10
 
-# Pump Detection
-PUMP_THRESHOLD_PERCENT=5.0
-PUMP_TIME_WINDOW=300
-PUMP_VOLUME_MULTIPLIER=3.0
+# Pump Detection (Ajustado para mayor agresividad)
+PUMP_THRESHOLD_PERCENT=3.0
+PUMP_TIME_WINDOW=180
+PUMP_VOLUME_MULTIPLIER=1.5
 
-# Top Movers
-TOP_MOVERS_THRESHOLD=2.5
-TOP_MOVERS_TIME_WINDOW=1800
+# Top Movers (Ajustado para mayor agresividad)
+TOP_MOVERS_THRESHOLD=1.5
+TOP_MOVERS_TIME_WINDOW=900
+
+# Gestión de Riesgo (Ajustado para mayor agresividad)
+STOP_LOSS_PERCENT=2.0
+TAKE_PROFIT_PERCENT=4.0
+TRAILING_STOP_PERCENT=1.5
+COOLDOWN_AFTER_LOSS=1800
 ```
 
 ## 🚀 Ejecución
@@ -193,14 +207,14 @@ El bot ejecuta automáticamente las siguientes tareas:
 
 ## 🧠 Estrategias
 
-### Pump Detection
-1. **Detección**: Monitorea cambios de precio >5% en ≤5 minutos
-2. **Validación**: Verifica volumen alto (3x promedio)
+### Pump Detection (Configuración Agresiva)
+1. **Detección**: Monitorea cambios de precio >3% en ≤3 minutos
+2. **Validación**: Verifica volumen alto (1.5x promedio)
 3. **Entrada**: Ejecuta entrada rápida con SL/TP agresivos
 4. **Gestión**: Trailing stop y monitoreo continuo
 
-### Top Movers
-1. **Escaneo**: Identifica movimientos ≥2-3% en 30 minutos
+### Top Movers (Configuración Agresiva)
+1. **Escaneo**: Identifica movimientos ≥1.5% en 15 minutos
 2. **Filtrado**: Descarta scams (volumen bajo, patrones sospechosos)
 3. **Análisis**: Aplica TA (EMA, RSI, MACD, Bollinger, ATR)
 4. **IA**: LSTM predice precio, PPO optimiza entrada
@@ -208,22 +222,48 @@ El bot ejecuta automáticamente las siguientes tareas:
 
 ## 🛡️ Gestión de Riesgo
 
-- **Position Sizing**: Basado en ATR y volatilidad
-- **Stop Loss**: 2-5% según estrategia
-- **Take Profit**: 3-8% según momentum
-- **Trailing Stop**: Ajuste dinámico
-- **Cooldown**: 30-60 minutos tras pérdidas
+- **Position Sizing**: 15% del balance disponible por operación
+- **Stop Loss**: 2% según estrategia
+- **Take Profit**: 4% según momentum
+- **Trailing Stop**: Ajuste dinámico 1.5%
+- **Cooldown**: 30 minutos tras pérdidas
 - **Límites**: Máximo 3 trades simultáneos
 - **Daily Limit**: 10% pérdida máxima diaria
+- **Objetivo Diario**: 75% ($150 USDT)
 
 ## 📱 Notificaciones
 
-### Telegram
-- Detección de pumps y top movers
-- Ejecución y cierre de trades
-- Errores y alertas críticas
-- Resúmenes diarios
-- Estado del bot
+### Telegram (Mejoradas)
+- **Inicio/Parada del Bot**: Con información de balance y configuración
+- **Detección de Pumps**: Con detalles técnicos
+- **Top Movers**: Con análisis completo y scores
+- **Ejecución de Trades**: Con saldo actual y porcentaje usado
+- **Cierre de Trades**: Con P&L y progreso hacia objetivo diario
+- **Errores Críticos**: Con contexto y estado del bot
+- **Resúmenes Diarios**: Con progreso hacia objetivo
+- **Objetivo Diario Alcanzado**: Notificación especial
+
+### Ejemplo de Notificación de Trade:
+```
+💼 TRADE EJECUTADO 💼
+
+🟢 Símbolo: BTCUSDT
+📊 Lado: BUY
+💰 Cantidad: 0.001234
+💵 Precio: $45,000.00
+💸 Valor: $30.00 (15.0% del capital)
+
+🛑 Stop Loss: $44,100.00
+🎯 Take Profit: $46,800.00
+
+📋 Estrategia: Pump Detection
+
+💰 SALDO ACTUAL: $200.00 USDT
+📊 USDT Disponible: $170.00
+🎯 Objetivo Diario: $150.00 USDT
+
+🕐 Ejecutado: 14:30:25
+```
 
 ## 📈 Monitoreo
 
@@ -237,6 +277,12 @@ El bot ejecuta automáticamente las siguientes tareas:
 - Archivos en `logs/`
 - Rotación automática
 - Niveles: DEBUG, INFO, WARNING, ERROR
+
+### Balance Manager
+- Archivo: `data/balance.json`
+- Seguimiento de saldo inicial ($200 USDT)
+- Progreso hacia objetivo diario (75%)
+- Estadísticas de trades y win rate
 
 ## 🏗️ Arquitectura
 
@@ -271,6 +317,15 @@ El bot ejecuta automáticamente las siguientes tareas:
          │  │ Analysis    │  │  Models     │              │
          │  └─────────────┘  └─────────────┘              │
          └─────────────────────────────────────────────────┘
+                                 │
+         ┌─────────────────────────────────────────────────┐
+         │              Balance Manager                    │
+         │  ┌─────────────┐  ┌─────────────┐              │
+         │  │   Saldo     │  │  Objetivo   │              │
+         │  │  Inicial    │  │  Diario     │              │
+         │  │  $200 USDT  │  │  75% $150   │              │
+         │  └─────────────┘  └─────────────┘              │
+         └─────────────────────────────────────────────────┘
 ```
 
 ## 🔧 Estructura del Proyecto
@@ -298,11 +353,13 @@ cryptoPump/
 │   ├── ai_models.py         # Modelos LSTM/PPO
 │   └── trading_env.py       # Entorno de trading
 ├── trading/
-│   └── binance_client.py    # Cliente Binance
+│   ├── binance_client.py    # Cliente Binance
+│   └── balance_manager.py   # Gestión de balance
 ├── notifications/
 │   └── telegram_bot.py      # Bot de Telegram
 ├── logs/                    # Archivos de log
 ├── data/                    # Datos temporales
+│   └── balance.json         # Datos de balance
 └── models/                  # Modelos AI guardados
 ```
 
@@ -377,6 +434,8 @@ BINANCE_API_KEY=tu_api_key_aqui
 BINANCE_SECRET_KEY=tu_secret_key_aqui
 TELEGRAM_BOT_TOKEN=tu_bot_token_aqui
 TELEGRAM_CHAT_ID=tu_chat_id_aqui
+INITIAL_BALANCE=200.0
+DAILY_TARGET_PERCENTAGE=75.0
 ```
 
 2. **Iniciar con Docker**:
@@ -397,17 +456,21 @@ docker-start.bat logs
 ### Notificaciones Esperadas
 
 ```
-🤖 CryptoPump Bot iniciado
-📊 Escaneando mercado...
-🚀 Pump detectado: BTCUSDT +7.2% en 3min
-💰 Trade ejecutado: BTCUSDT LONG @ $45,000
-📈 Take Profit alcanzado: +4.5%
-📊 Resumen diario: +12.3% (5 trades)
+🤖 BOT INICIADO
+💰 Saldo Inicial: $200.00 USDT
+🎯 Objetivo Diario: $150.00 USDT (75%)
+📊 Saldo Actual: $200.00 USDT
+
+🚀 Pump detectado: BTCUSDT +3.2% en 2min
+💰 Trade ejecutado: BTCUSDT LONG @ $45,000 (15% del capital)
+📈 Take Profit alcanzado: +4.0%
+📊 Resumen diario: +12.3% (5 trades) - Progreso: 8.2%
+🎯 ¡OBJETIVO DIARIO ALCANZADO! +75.0%
 ```
 
 ## ⚠️ Disclaimer
 
-**ADVERTENCIA**: Este bot es para fines educativos y de investigación. El trading de criptomonedas conlleva riesgos significativos. No inviertas más de lo que puedas permitirte perder. Los resultados pasados no garantizan resultados futuros.
+**ADVERTENCIA**: Este bot está configurado para trading agresivo con objetivo del 75% diario. El trading de criptomonedas conlleva riesgos significativos. No inviertas más de lo que puedas permitirte perder. Los resultados pasados no garantizan resultados futuros.
 
 ## 🤝 Contribuciones
 

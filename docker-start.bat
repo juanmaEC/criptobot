@@ -4,7 +4,7 @@ REM Uso: docker-start.bat [start|stop|restart|logs|status|clean]
 
 setlocal enabledelayedexpansion
 
-REM Colores para output (Windows PowerShell)
+REM Colores para output
 set "RED=[91m"
 set "GREEN=[92m"
 set "YELLOW=[93m"
@@ -157,8 +157,7 @@ echo   %~nx0 logs
 echo   %~nx0 status
 goto :eof
 
-REM Función principal
-:main
+REM Procesar argumentos
 if "%1"=="" goto :show_help
 if "%1"=="start" goto :start_bot
 if "%1"=="stop" goto :stop_bot
@@ -173,6 +172,3 @@ if "%1"=="-h" goto :show_help
 call :print_error "Comando desconocido: %1"
 call :show_help
 exit /b 1
-
-REM Ejecutar función principal
-call :main %*
