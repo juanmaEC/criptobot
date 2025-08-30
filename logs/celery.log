@@ -3592,3 +3592,196 @@
 2025-08-30 19:12:15.827 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BTC/USDT: Cambio -0.01%, Volumen 0.00x, Precio $108717.300000
 2025-08-30 19:12:15.828 | INFO     | celery_app:scan_pumps:136 - ✅ Escaneo de pumps completado: 0 pumps detectados de 8 símbolos analizados
 2025-08-30 19:12:15.836 | INFO     | celery_app:scan_pumps:73 - 🚀 Iniciando escaneo de Pumps...
+2025-08-30 23:38:43.906 | INFO     | celery_app:scan_pumps:88 - 📊 Obtenidos 8 símbolos para análisis de pumps
+2025-08-30 23:38:43.907 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 1/50: AAVE/USDT
+2025-08-30 23:38:44.183 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando AAVE/USDT: Cambio 0.00%, Volumen 0.00x, Precio $318.850000
+2025-08-30 23:38:44.184 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 2/50: ADA/USDT
+2025-08-30 23:38:44.443 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ADA/USDT: Cambio 0.05%, Volumen 0.00x, Precio $0.822700
+2025-08-30 23:38:44.444 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 3/50: ALGO/USDT
+2025-08-30 23:38:44.715 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ALGO/USDT: Cambio 0.09%, Volumen 0.00x, Precio $0.233400
+2025-08-30 23:38:44.716 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 4/50: ARB/USDT
+2025-08-30 23:38:45.013 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ARB/USDT: Cambio 0.00%, Volumen 0.00x, Precio $0.499300
+2025-08-30 23:38:45.014 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 5/50: ATOM/USDT
+2025-08-30 23:38:45.326 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ATOM/USDT: Cambio 0.16%, Volumen 0.69x, Precio $4.503000
+2025-08-30 23:38:45.327 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 6/50: BNB/USDT
+2025-08-30 23:38:46.056 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BNB/USDT: Cambio -0.01%, Volumen 0.00x, Precio $863.360000
+2025-08-30 23:38:46.057 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 7/50: BONK/USDT
+2025-08-30 23:38:46.318 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BONK/USDT: Cambio -0.27%, Volumen 0.00x, Precio $0.000022
+2025-08-30 23:38:46.318 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 8/50: BTC/USDT
+2025-08-30 23:38:46.579 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BTC/USDT: Cambio 0.10%, Volumen 3.93x, Precio $108734.430000
+2025-08-30 23:38:46.580 | INFO     | celery_app:scan_pumps:136 - ✅ Escaneo de pumps completado: 0 pumps detectados de 8 símbolos analizados
+2025-08-30 23:38:46.612 | INFO     | celery_app:scan_pumps:73 - 🚀 Iniciando escaneo de Pumps...
+2025-08-30 23:38:53.119 | INFO     | celery_app:scan_pumps:88 - 📊 Obtenidos 8 símbolos para análisis de pumps
+2025-08-30 23:38:53.120 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 1/50: AAVE/USDT
+2025-08-30 23:38:53.371 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando AAVE/USDT: Cambio 0.00%, Volumen 0.00x, Precio $318.850000
+2025-08-30 23:38:53.372 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 2/50: ADA/USDT
+2025-08-30 23:38:53.624 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ADA/USDT: Cambio 0.02%, Volumen 4.98x, Precio $0.822500
+2025-08-30 23:38:53.624 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 3/50: ALGO/USDT
+2025-08-30 23:38:54.317 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ALGO/USDT: Cambio 0.09%, Volumen 0.00x, Precio $0.233400
+2025-08-30 23:38:54.318 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 4/50: ARB/USDT
+2025-08-30 23:38:55.041 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ARB/USDT: Cambio 0.00%, Volumen 0.00x, Precio $0.499300
+2025-08-30 23:38:55.042 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 5/50: ATOM/USDT
+2025-08-30 23:38:55.741 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ATOM/USDT: Cambio 0.16%, Volumen 0.69x, Precio $4.503000
+2025-08-30 23:38:55.742 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 6/50: BNB/USDT
+2025-08-30 23:38:56.006 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BNB/USDT: Cambio -0.03%, Volumen 0.03x, Precio $863.210000
+2025-08-30 23:38:56.007 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 7/50: BONK/USDT
+2025-08-30 23:38:56.690 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BONK/USDT: Cambio -0.27%, Volumen 0.00x, Precio $0.000022
+2025-08-30 23:38:56.691 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 8/50: BTC/USDT
+2025-08-30 23:38:56.991 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BTC/USDT: Cambio 0.10%, Volumen 4.39x, Precio $108734.430000
+2025-08-30 23:38:56.992 | INFO     | celery_app:scan_pumps:136 - ✅ Escaneo de pumps completado: 0 pumps detectados de 8 símbolos analizados
+2025-08-30 23:38:57.001 | INFO     | celery_app:scan_pumps:73 - 🚀 Iniciando escaneo de Pumps...
+2025-08-30 23:41:19.586 | INFO     | celery_app:scan_pumps:88 - 📊 Obtenidos 8 símbolos para análisis de pumps
+2025-08-30 23:41:19.586 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 1/50: AAVE/USDT
+2025-08-30 23:41:19.831 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando AAVE/USDT: Cambio 0.00%, Volumen 0.00x, Precio $318.850000
+2025-08-30 23:41:19.831 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 2/50: ADA/USDT
+2025-08-30 23:41:20.083 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ADA/USDT: Cambio -0.09%, Volumen 0.00x, Precio $0.822600
+2025-08-30 23:41:20.084 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 3/50: ALGO/USDT
+2025-08-30 23:41:20.344 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ALGO/USDT: Cambio -0.04%, Volumen 0.00x, Precio $0.233500
+2025-08-30 23:41:20.345 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 4/50: ARB/USDT
+2025-08-30 23:41:20.596 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ARB/USDT: Cambio 0.00%, Volumen 0.00x, Precio $0.499300
+2025-08-30 23:41:20.597 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 5/50: ATOM/USDT
+2025-08-30 23:41:20.844 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ATOM/USDT: Cambio -0.02%, Volumen 0.00x, Precio $4.504000
+2025-08-30 23:41:20.845 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 6/50: BNB/USDT
+2025-08-30 23:41:21.097 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BNB/USDT: Cambio -0.02%, Volumen 0.00x, Precio $863.020000
+2025-08-30 23:41:21.098 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 7/50: BONK/USDT
+2025-08-30 23:41:21.574 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BONK/USDT: Cambio -0.04%, Volumen 0.00x, Precio $0.000022
+2025-08-30 23:41:21.574 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 8/50: BTC/USDT
+2025-08-30 23:41:22.084 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BTC/USDT: Cambio 0.03%, Volumen 0.00x, Precio $108734.480000
+2025-08-30 23:41:22.084 | INFO     | celery_app:scan_pumps:136 - ✅ Escaneo de pumps completado: 0 pumps detectados de 8 símbolos analizados
+2025-08-30 23:41:22.097 | INFO     | celery_app:scan_pumps:73 - 🚀 Iniciando escaneo de Pumps...
+2025-08-30 23:41:31.830 | INFO     | celery_app:scan_pumps:88 - 📊 Obtenidos 8 símbolos para análisis de pumps
+2025-08-30 23:41:31.830 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 1/50: AAVE/USDT
+2025-08-30 23:41:32.087 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando AAVE/USDT: Cambio 0.00%, Volumen 0.00x, Precio $318.850000
+2025-08-30 23:41:32.088 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 2/50: ADA/USDT
+2025-08-30 23:41:32.341 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ADA/USDT: Cambio -0.09%, Volumen 0.00x, Precio $0.822600
+2025-08-30 23:41:32.342 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 3/50: ALGO/USDT
+2025-08-30 23:41:33.026 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ALGO/USDT: Cambio -0.04%, Volumen 0.00x, Precio $0.233500
+2025-08-30 23:41:33.027 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 4/50: ARB/USDT
+2025-08-30 23:41:33.275 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ARB/USDT: Cambio 0.00%, Volumen 0.00x, Precio $0.499300
+2025-08-30 23:41:33.276 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 5/50: ATOM/USDT
+2025-08-30 23:41:33.523 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ATOM/USDT: Cambio -0.02%, Volumen 0.00x, Precio $4.504000
+2025-08-30 23:41:33.524 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 6/50: BNB/USDT
+2025-08-30 23:41:33.775 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BNB/USDT: Cambio -0.02%, Volumen 0.00x, Precio $863.020000
+2025-08-30 23:41:33.776 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 7/50: BONK/USDT
+2025-08-30 23:41:34.039 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BONK/USDT: Cambio -0.04%, Volumen 0.00x, Precio $0.000022
+2025-08-30 23:41:34.045 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 8/50: BTC/USDT
+2025-08-30 23:41:34.294 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BTC/USDT: Cambio 0.02%, Volumen 0.03x, Precio $108725.680000
+2025-08-30 23:41:34.295 | INFO     | celery_app:scan_pumps:136 - ✅ Escaneo de pumps completado: 0 pumps detectados de 8 símbolos analizados
+2025-08-30 23:41:34.304 | INFO     | celery_app:scan_pumps:73 - 🚀 Iniciando escaneo de Pumps...
+2025-08-30 23:42:00.993 | INFO     | celery_app:scan_pumps:88 - 📊 Obtenidos 8 símbolos para análisis de pumps
+2025-08-30 23:42:00.994 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 1/50: AAVE/USDT
+2025-08-30 23:42:01.691 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando AAVE/USDT: Cambio 0.00%, Volumen 0.00x, Precio $318.850000
+2025-08-30 23:42:01.692 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 2/50: ADA/USDT
+2025-08-30 23:42:01.942 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ADA/USDT: Cambio -0.18%, Volumen 0.63x, Precio $0.821800
+2025-08-30 23:42:01.943 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 3/50: ALGO/USDT
+2025-08-30 23:42:02.612 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ALGO/USDT: Cambio -0.04%, Volumen 1.86x, Precio $0.233500
+2025-08-30 23:42:02.612 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 4/50: ARB/USDT
+2025-08-30 23:42:03.297 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ARB/USDT: Cambio 0.00%, Volumen 0.00x, Precio $0.499300
+2025-08-30 23:42:03.298 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 5/50: ATOM/USDT
+2025-08-30 23:42:03.562 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ATOM/USDT: Cambio -0.07%, Volumen 0.00x, Precio $4.502000
+2025-08-30 23:42:03.563 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 6/50: BNB/USDT
+2025-08-30 23:42:03.810 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BNB/USDT: Cambio -0.10%, Volumen 0.00x, Precio $863.020000
+2025-08-30 23:42:03.810 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 7/50: BONK/USDT
+2025-08-30 23:42:04.059 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BONK/USDT: Cambio -0.04%, Volumen 0.00x, Precio $0.000022
+2025-08-30 23:42:04.060 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 8/50: BTC/USDT
+2025-08-30 23:42:04.305 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BTC/USDT: Cambio 0.00%, Volumen 0.01x, Precio $108731.120000
+2025-08-30 23:42:04.306 | INFO     | celery_app:scan_pumps:136 - ✅ Escaneo de pumps completado: 0 pumps detectados de 8 símbolos analizados
+2025-08-30 23:42:04.312 | INFO     | celery_app:scan_top_movers:156 - 🚀 Iniciando escaneo de Top Movers...
+2025-08-30 23:42:04.312 | INFO     | celery_app:scan_top_movers:170 - 📊 Obteniendo datos de mercado para todos los símbolos...
+2025-08-30 23:42:12.989 | INFO     | celery_app:scan_pumps:88 - 📊 Obtenidos 8 símbolos para análisis de pumps
+2025-08-30 23:42:12.989 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 1/50: AAVE/USDT
+2025-08-30 23:42:13.663 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando AAVE/USDT: Cambio 0.00%, Volumen 0.00x, Precio $318.850000
+2025-08-30 23:42:13.664 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 2/50: ADA/USDT
+2025-08-30 23:42:13.911 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ADA/USDT: Cambio -0.19%, Volumen 0.71x, Precio $0.822300
+2025-08-30 23:42:13.912 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 3/50: ALGO/USDT
+2025-08-30 23:42:14.161 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ALGO/USDT: Cambio -0.04%, Volumen 0.00x, Precio $0.233500
+2025-08-30 23:42:14.162 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 4/50: ARB/USDT
+2025-08-30 23:42:14.410 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ARB/USDT: Cambio 0.00%, Volumen 0.00x, Precio $0.499300
+2025-08-30 23:42:14.410 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 5/50: ATOM/USDT
+2025-08-30 23:42:14.658 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ATOM/USDT: Cambio -0.07%, Volumen 0.00x, Precio $4.502000
+2025-08-30 23:42:14.658 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 6/50: BNB/USDT
+2025-08-30 23:42:15.333 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BNB/USDT: Cambio -0.17%, Volumen 0.03x, Precio $862.400000
+2025-08-30 23:42:15.334 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 7/50: BONK/USDT
+2025-08-30 23:42:15.601 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BONK/USDT: Cambio -0.04%, Volumen 0.00x, Precio $0.000022
+2025-08-30 23:42:15.601 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 8/50: BTC/USDT
+2025-08-30 23:42:16.303 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BTC/USDT: Cambio 0.00%, Volumen 0.01x, Precio $108731.120000
+2025-08-30 23:42:16.309 | INFO     | celery_app:scan_pumps:136 - ✅ Escaneo de pumps completado: 0 pumps detectados de 8 símbolos analizados
+2025-08-30 23:42:16.318 | INFO     | celery_app:scan_pumps:73 - 🚀 Iniciando escaneo de Pumps...
+2025-08-30 23:42:46.349 | INFO     | celery_app:scan_top_movers:172 - 📈 Datos obtenidos para 8 símbolos
+2025-08-30 23:42:46.350 | INFO     | strategies.top_movers:scan_top_movers:26 - 🔍 Iniciando escaneo de Top Movers - 8 símbolos disponibles
+2025-08-30 23:42:46.350 | INFO     | strategies.top_movers:scan_top_movers:39 - 📈 Analizando Top Mover: AAVE/USDT (1/8)
+2025-08-30 23:42:46.355 | DEBUG    | strategies.top_movers:scan_top_movers:58 - 📉 AAVE/USDT: No cumple umbral (0.00% < 1.5%)
+2025-08-30 23:42:46.355 | INFO     | strategies.top_movers:scan_top_movers:39 - 📈 Analizando Top Mover: ADA/USDT (2/8)
+2025-08-30 23:42:46.357 | DEBUG    | strategies.top_movers:scan_top_movers:58 - 📉 ADA/USDT: No cumple umbral (-0.21% < 1.5%)
+2025-08-30 23:42:46.358 | INFO     | strategies.top_movers:scan_top_movers:39 - 📈 Analizando Top Mover: ALGO/USDT (3/8)
+2025-08-30 23:42:46.360 | DEBUG    | strategies.top_movers:scan_top_movers:58 - 📉 ALGO/USDT: No cumple umbral (-0.04% < 1.5%)
+2025-08-30 23:42:46.361 | INFO     | strategies.top_movers:scan_top_movers:39 - 📈 Analizando Top Mover: ARB/USDT (4/8)
+2025-08-30 23:42:46.363 | DEBUG    | strategies.top_movers:scan_top_movers:58 - 📉 ARB/USDT: No cumple umbral (0.00% < 1.5%)
+2025-08-30 23:42:46.364 | INFO     | strategies.top_movers:scan_top_movers:39 - 📈 Analizando Top Mover: ATOM/USDT (5/8)
+2025-08-30 23:42:46.366 | DEBUG    | strategies.top_movers:scan_top_movers:58 - 📉 ATOM/USDT: No cumple umbral (-0.07% < 1.5%)
+2025-08-30 23:42:46.367 | INFO     | strategies.top_movers:scan_top_movers:39 - 📈 Analizando Top Mover: BNB/USDT (6/8)
+2025-08-30 23:42:46.368 | DEBUG    | strategies.top_movers:scan_top_movers:58 - 📉 BNB/USDT: No cumple umbral (-0.17% < 1.5%)
+2025-08-30 23:42:46.369 | INFO     | strategies.top_movers:scan_top_movers:39 - 📈 Analizando Top Mover: BONK/USDT (7/8)
+2025-08-30 23:42:46.371 | DEBUG    | strategies.top_movers:scan_top_movers:58 - 📉 BONK/USDT: No cumple umbral (-0.04% < 1.5%)
+2025-08-30 23:42:46.372 | INFO     | strategies.top_movers:scan_top_movers:39 - 📈 Analizando Top Mover: BTC/USDT (8/8)
+2025-08-30 23:42:46.373 | DEBUG    | strategies.top_movers:scan_top_movers:58 - 📉 BTC/USDT: No cumple umbral (0.01% < 1.5%)
+2025-08-30 23:42:46.374 | INFO     | strategies.top_movers:scan_top_movers:68 - 🏆 Top Movers encontrados: 0 de 8 analizados
+2025-08-30 23:42:46.375 | INFO     | celery_app:scan_top_movers:209 - ✅ Escaneo de Top Movers completado: 0 top movers encontrados, 0 operaciones ejecutadas
+2025-08-30 23:42:46.402 | INFO     | celery_app:scan_pumps:73 - 🚀 Iniciando escaneo de Pumps...
+2025-08-30 23:42:53.372 | INFO     | celery_app:scan_pumps:88 - 📊 Obtenidos 8 símbolos para análisis de pumps
+2025-08-30 23:42:53.373 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 1/50: AAVE/USDT
+2025-08-30 23:42:53.627 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando AAVE/USDT: Cambio 0.00%, Volumen 0.00x, Precio $318.850000
+2025-08-30 23:42:53.628 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 2/50: ADA/USDT
+2025-08-30 23:42:54.316 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ADA/USDT: Cambio -0.21%, Volumen 7.69x, Precio $0.822200
+2025-08-30 23:42:54.316 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 3/50: ALGO/USDT
+2025-08-30 23:42:54.572 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ALGO/USDT: Cambio -0.04%, Volumen 2.03x, Precio $0.233500
+2025-08-30 23:42:54.574 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 4/50: ARB/USDT
+2025-08-30 23:42:54.827 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ARB/USDT: Cambio 0.00%, Volumen 0.00x, Precio $0.499300
+2025-08-30 23:42:54.829 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 5/50: ATOM/USDT
+2025-08-30 23:42:55.535 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ATOM/USDT: Cambio -0.02%, Volumen 0.81x, Precio $4.504000
+2025-08-30 23:42:55.537 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 6/50: BNB/USDT
+2025-08-30 23:42:55.795 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BNB/USDT: Cambio -0.17%, Volumen 0.03x, Precio $862.400000
+2025-08-30 23:42:55.796 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 7/50: BONK/USDT
+2025-08-30 23:42:56.054 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BONK/USDT: Cambio -0.04%, Volumen 0.00x, Precio $0.000022
+2025-08-30 23:42:56.056 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 8/50: BTC/USDT
+2025-08-30 23:42:56.751 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BTC/USDT: Cambio 0.02%, Volumen 0.09x, Precio $108747.870000
+2025-08-30 23:42:56.754 | INFO     | celery_app:scan_pumps:136 - ✅ Escaneo de pumps completado: 0 pumps detectados de 8 símbolos analizados
+2025-08-30 23:42:56.771 | INFO     | celery_app:scan_pumps:73 - 🚀 Iniciando escaneo de Pumps...
+2025-08-30 23:43:22.430 | INFO     | celery_app:scan_pumps:88 - 📊 Obtenidos 8 símbolos para análisis de pumps
+2025-08-30 23:43:22.430 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 1/50: AAVE/USDT
+2025-08-30 23:43:23.117 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando AAVE/USDT: Cambio 0.00%, Volumen 0.00x, Precio $318.850000
+2025-08-30 23:43:23.117 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 2/50: ADA/USDT
+2025-08-30 23:43:23.369 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ADA/USDT: Cambio -0.17%, Volumen 0.37x, Precio $0.821900
+2025-08-30 23:43:23.369 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 3/50: ALGO/USDT
+2025-08-30 23:43:23.633 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ALGO/USDT: Cambio -0.04%, Volumen 0.00x, Precio $0.233500
+2025-08-30 23:43:23.634 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 4/50: ARB/USDT
+2025-08-30 23:43:24.309 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ARB/USDT: Cambio 0.00%, Volumen 0.00x, Precio $0.499300
+2025-08-30 23:43:24.309 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 5/50: ATOM/USDT
+2025-08-30 23:43:25.139 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ATOM/USDT: Cambio 0.00%, Volumen 0.00x, Precio $4.504000
+2025-08-30 23:43:25.140 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 6/50: BNB/USDT
+2025-08-30 23:43:25.445 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BNB/USDT: Cambio -0.17%, Volumen 0.00x, Precio $862.400000
+2025-08-30 23:43:25.446 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 7/50: BONK/USDT
+2025-08-30 23:43:25.707 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BONK/USDT: Cambio -0.04%, Volumen 0.00x, Precio $0.000022
+2025-08-30 23:43:25.708 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 8/50: BTC/USDT
+2025-08-30 23:43:25.951 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BTC/USDT: Cambio 0.05%, Volumen 0.24x, Precio $108752.370000
+2025-08-30 23:43:25.952 | INFO     | celery_app:scan_pumps:136 - ✅ Escaneo de pumps completado: 0 pumps detectados de 8 símbolos analizados
+2025-08-30 23:43:25.972 | INFO     | celery_app:scan_pumps:73 - 🚀 Iniciando escaneo de Pumps...
+2025-08-30 23:43:33.679 | INFO     | celery_app:scan_pumps:88 - 📊 Obtenidos 8 símbolos para análisis de pumps
+2025-08-30 23:43:33.679 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 1/50: AAVE/USDT
+2025-08-30 23:43:33.926 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando AAVE/USDT: Cambio 0.00%, Volumen 0.00x, Precio $318.850000
+2025-08-30 23:43:33.926 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 2/50: ADA/USDT
+2025-08-30 23:43:34.177 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ADA/USDT: Cambio -0.17%, Volumen 0.37x, Precio $0.821900
+2025-08-30 23:43:34.178 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 3/50: ALGO/USDT
+2025-08-30 23:43:34.848 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ALGO/USDT: Cambio -0.04%, Volumen 0.00x, Precio $0.233500
+2025-08-30 23:43:34.848 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 4/50: ARB/USDT
+2025-08-30 23:43:35.101 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ARB/USDT: Cambio 0.00%, Volumen 0.00x, Precio $0.499300
+2025-08-30 23:43:35.102 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 5/50: ATOM/USDT
+2025-08-30 23:43:35.357 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando ATOM/USDT: Cambio 0.00%, Volumen 0.00x, Precio $4.504000
+2025-08-30 23:43:35.357 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 6/50: BNB/USDT
+2025-08-30 23:43:36.060 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BNB/USDT: Cambio -0.17%, Volumen 0.00x, Precio $862.400000
+2025-08-30 23:43:36.064 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 7/50: BONK/USDT
+2025-08-30 23:43:36.761 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BONK/USDT: Cambio -0.04%, Volumen 0.00x, Precio $0.000022
+2025-08-30 23:43:36.761 | INFO     | celery_app:scan_pumps:96 - 🔍 Analizando pump 8/50: BTC/USDT
+2025-08-30 23:43:37.020 | INFO     | strategies.pump_detector:detect_pump:40 - 🔍 Analizando BTC/USDT: Cambio 0.06%, Volumen 0.25x, Precio $108760.000000
+2025-08-30 23:43:37.021 | INFO     | celery_app:scan_pumps:136 - ✅ Escaneo de pumps completado: 0 pumps detectados de 8 símbolos analizados
+2025-08-30 23:43:37.024 | INFO     | celery_app:scan_pumps:73 - 🚀 Iniciando escaneo de Pumps...

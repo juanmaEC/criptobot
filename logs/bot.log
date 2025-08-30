@@ -48,3 +48,19 @@
 📈 Progreso diario: 0.0%
             
 2025-08-30 16:46:07.518 | INFO     | __main__:start:79 - 🚀 Bot iniciado - Ejecutando 24/7...
+2025-08-30 19:04:41.720 | INFO     | notifications.telegram_bot:initialize_bot:24 - Telegram bot initialized successfully
+2025-08-30 19:04:41.738 | INFO     | trading.binance_client:initialize_exchange:32 - Configurando sandbox mode para testnet
+2025-08-30 19:04:41.739 | INFO     | trading.binance_client:initialize_exchange:37 - URL base del exchange: https://testnet.binance.vision/api/v3
+2025-08-30 19:04:45.695 | INFO     | trading.binance_client:initialize_exchange:41 - Binance client initialized successfully
+2025-08-30 19:04:45.703 | INFO     | __main__:initialize:33 - 🚀 Iniciando CryptoPump Bot...
+2025-08-30 19:04:45.855 | INFO     | __main__:initialize:42 - ✅ Base de datos inicializada
+2025-08-30 19:04:46.564 | INFO     | __main__:initialize:46 - ✅ Conexión Binance establecida - Balance: $9526.11
+2025-08-30 19:04:53.351 | ERROR    | notifications.telegram_bot:send_message:44 - Error sending Telegram message: Timed out
+2025-08-30 19:04:53.354 | INFO     | __main__:initialize:56 - 
+✅ Bot inicializado correctamente
+💰 Saldo inicial: $200.00 USDT
+🎯 Objetivo diario: $150.00 USDT (75.0%)
+📊 Saldo actual: $9526.11 USDT
+📈 Progreso diario: 0.0%
+            
+2025-08-30 19:04:53.356 | INFO     | __main__:start:79 - 🚀 Bot iniciado - Ejecutando 24/7...
