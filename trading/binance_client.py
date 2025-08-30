@@ -15,15 +15,26 @@ class BinanceClient:
     def initialize_exchange(self):
         """Inicializa conexión con Binance"""
         try:
-            self.exchange = ccxt.binance({
+            exchange_config = {
                 'apiKey': self.config.BINANCE_API_KEY,
                 'secret': self.config.BINANCE_SECRET_KEY,
-                'sandbox': self.config.BINANCE_TESTNET,
                 'enableRateLimit': True,
                 'options': {
                     'defaultType': 'spot'
                 }
-            })
+            }
+            
+            self.exchange = ccxt.binance(exchange_config)
+            
+            # Configurar sandbox mode para testnet
+            if self.config.BINANCE_TESTNET:
+                self.exchange.set_sandbox_mode(True)
+                logger.info("Configurando sandbox mode para testnet")
+            else:
+                logger.info("Configurando modo producción")
+            
+            # Mostrar la URL base que está usando el exchange
+            logger.info(f"URL base del exchange: {self.exchange.urls['api']['public']}")
             
             # Cargar mercados
             self.exchange.load_markets()

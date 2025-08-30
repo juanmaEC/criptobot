@@ -20,31 +20,54 @@ class TopMoversStrategy:
         """Escanea todos los símbolos para encontrar top movers"""
         try:
             top_movers = []
+            total_symbols = len(all_market_data)
+            analyzed_count = 0
+            
+            logger.info(f"🔍 Iniciando escaneo de Top Movers - {total_symbols} símbolos disponibles")
             
             for symbol, market_data in all_market_data.items():
                 if len(market_data) < 50:  # Necesitamos suficientes datos
+                    logger.debug(f"📊 {symbol}: Datos insuficientes para análisis ({len(market_data)} < 50)")
                     continue
                 
                 # Verificar si ya analizamos recientemente
                 if symbol in self.analyzed_symbols:
+                    logger.debug(f"🔄 {symbol}: Ya analizado recientemente, saltando")
                     continue
+                
+                analyzed_count += 1
+                logger.info(f"📈 Analizando Top Mover: {symbol} ({analyzed_count}/{total_symbols})")
                 
                 # Calcular movimiento en ventana de tiempo
                 movement_info = self._calculate_movement(symbol, market_data)
                 
                 if movement_info and movement_info['price_change_percent'] >= self.config.TOP_MOVERS_THRESHOLD:
+                    logger.info(f"🎯 {symbol}: Cumple umbral de Top Mover ({movement_info['price_change_percent']:.2f}% >= {self.config.TOP_MOVERS_THRESHOLD}%)")
+                    
                     # Análisis completo
                     analysis = self._analyze_symbol(symbol, market_data, movement_info)
                     
                     if analysis:
                         top_movers.append(analysis)
                         self.analyzed_symbols.add(symbol)
+                        logger.info(f"✅ {symbol}: Análisis completo completado - Score: {analysis.get('final_score', 0):.2f}")
+                    else:
+                        logger.info(f"❌ {symbol}: Análisis completo falló o no pasó filtros")
+                else:
+                    if movement_info:
+                        logger.debug(f"📉 {symbol}: No cumple umbral ({movement_info['price_change_percent']:.2f}% < {self.config.TOP_MOVERS_THRESHOLD}%)")
+                    else:
+                        logger.debug(f"❓ {symbol}: No se pudo calcular movimiento")
             
             # Limpiar símbolos analizados antiguos
             self._clean_analyzed_symbols()
             
             # Ordenar por score final
             top_movers.sort(key=lambda x: x['final_score'], reverse=True)
+            
+            logger.info(f"🏆 Top Movers encontrados: {len(top_movers)} de {analyzed_count} analizados")
+            for i, mover in enumerate(top_movers[:5]):  # Mostrar top 5
+                logger.info(f"   {i+1}. {mover['symbol']}: {mover['price_change_percent']:.2f}% - Score: {mover.get('final_score', 0):.2f}")
             
             return top_movers[:10]  # Top 10 movers
             

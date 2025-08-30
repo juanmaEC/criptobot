@@ -1,0 +1,20 @@
+2025-08-30 10:39:45.485 | ERROR    | trading.binance_client:initialize_exchange:44 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-30 10:39:45.489 | ERROR    | __main__:test_binance_client:56 - Error testing BinanceClient: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-30 10:43:22.252 | ERROR    | trading.binance_client:initialize_exchange:44 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-30 10:43:22.253 | ERROR    | __main__:test_binance_client:56 - Error testing BinanceClient: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-30 10:44:04.304 | ERROR    | trading.binance_client:initialize_exchange:44 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-30 10:44:04.305 | ERROR    | __main__:test_binance_client:61 - Error testing BinanceClient: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-30 10:44:25.738 | INFO     | trading.binance_client:initialize_exchange:36 - Configurando URLs para testnet: https://testnet.binance.vision/api
+2025-08-30 10:44:25.745 | INFO     | trading.binance_client:initialize_exchange:43 - URL base del exchange: https://testnet.binance.vision/api
+2025-08-30 10:44:26.630 | ERROR    | trading.binance_client:initialize_exchange:50 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-30 10:44:26.631 | ERROR    | __main__:test_binance_client:61 - Error testing BinanceClient: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-30 10:45:02.369 | INFO     | trading.binance_client:initialize_exchange:38 - Configurando URLs para producción: https://api.binance.com/api
+2025-08-30 10:45:02.376 | INFO     | trading.binance_client:initialize_exchange:43 - URL base del exchange: https://api.binance.com/api/v3
+2025-08-30 10:45:03.082 | ERROR    | trading.binance_client:initialize_exchange:50 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-30 10:45:03.082 | ERROR    | __main__:test_binance_client:61 - Error testing BinanceClient: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-30 10:47:24.659 | INFO     | trading.binance_client:initialize_exchange:32 - Configurando sandbox mode para testnet
+2025-08-30 10:47:24.659 | INFO     | trading.binance_client:initialize_exchange:37 - URL base del exchange: https://testnet.binance.vision/api/v3
+2025-08-30 10:47:28.420 | INFO     | trading.binance_client:initialize_exchange:41 - Binance client initialized successfully
+2025-08-30 13:05:04.407 | INFO     | trading.binance_client:initialize_exchange:32 - Configurando sandbox mode para testnet
+2025-08-30 13:05:04.415 | INFO     | trading.binance_client:initialize_exchange:37 - URL base del exchange: https://testnet.binance.vision/api/v3
+2025-08-30 13:05:08.112 | INFO     | trading.binance_client:initialize_exchange:41 - Binance client initialized successfully

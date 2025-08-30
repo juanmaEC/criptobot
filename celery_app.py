@@ -68,9 +68,9 @@ create_tables()
 
 @celery_app.task(bind=True)
 def scan_pumps(self):
-    """Tarea para escanear pumps en tiempo real"""
+    """Tarea para escanear pumps"""
     try:
-        logger.info("Starting pump scan...")
+        logger.info("🚀 Iniciando escaneo de Pumps...")
         
         # Obtener sesión de base de datos
         db = next(get_db())
@@ -85,15 +85,21 @@ def scan_pumps(self):
         
         # Obtener símbolos con mayor volumen
         symbols = get_high_volume_symbols()
+        logger.info(f"📊 Obtenidos {len(symbols)} símbolos para análisis de pumps")
         
         pumps_detected = 0
+        symbols_analyzed = 0
         
         for symbol in symbols[:50]:  # Limitar a top 50 por rendimiento
             try:
+                symbols_analyzed += 1
+                logger.info(f"🔍 Analizando pump {symbols_analyzed}/50: {symbol}")
+                
                 # Obtener datos de mercado
                 market_data = binance_client.get_market_data(symbol, '1m', 100)
                 
                 if len(market_data) < 30:
+                    logger.debug(f"📉 {symbol}: Datos insuficientes para análisis de pump ({len(market_data)} < 30)")
                     continue
                 
                 # Detectar pump
@@ -101,6 +107,7 @@ def scan_pumps(self):
                 
                 if pump_info:
                     pumps_detected += 1
+                    logger.info(f"🚀 PUMP CONFIRMADO: {symbol} - {pump_info['price_change_percent']:.2f}% en {pump_info['time_window']//60}min")
                     
                     # Notificar por Telegram
                     if telegram_notifier:
@@ -108,29 +115,33 @@ def scan_pumps(self):
                     
                     # Verificar si debemos operar
                     if pump_detector.should_trade_pump(pump_info):
+                        logger.info(f"💰 Evaluando operación en {symbol}...")
                         # Obtener balance de cuenta
                         balance = binance_client.get_account_balance()
                         position_size = pump_detector.calculate_position_size(pump_info, balance['USDT'])
                         
                         if position_size > 0:
+                            logger.info(f"💸 Ejecutando operación en {symbol} - Tamaño: ${position_size:.2f}")
                             # Ejecutar trade
                             execute_pump_trade.delay(symbol, pump_info, position_size)
-                    
-                    logger.info(f"Pump detected: {symbol} - {pump_info['price_change_percent']:.2f}%")
+                        else:
+                            logger.info(f"⚠️ {symbol}: Posición calculada es 0, no operando")
+                    else:
+                        logger.info(f"❌ {symbol}: No cumple criterios para operar")
                 
             except Exception as e:
                 logger.error(f"Error processing symbol {symbol}: {e}")
                 continue
         
-        logger.info(f"Pump scan completed. Pumps detected: {pumps_detected}")
+        logger.info(f"✅ Escaneo de pumps completado: {pumps_detected} pumps detectados de {symbols_analyzed} símbolos analizados")
         
         # Actualizar progreso
         self.update_state(
             state='SUCCESS',
-            meta={'pumps_detected': pumps_detected}
+            meta={'pumps_detected': pumps_detected, 'symbols_analyzed': symbols_analyzed}
         )
         
-        return {'pumps_detected': pumps_detected}
+        return {'pumps_detected': pumps_detected, 'symbols_analyzed': symbols_analyzed}
         
     except Exception as e:
         logger.error(f"Error in pump scan: {e}")
@@ -142,7 +153,7 @@ def scan_pumps(self):
 def scan_top_movers(self):
     """Tarea para escanear top movers"""
     try:
-        logger.info("Starting top movers scan...")
+        logger.info("🚀 Iniciando escaneo de Top Movers...")
         
         # Obtener sesión de base de datos
         db = next(get_db())
@@ -156,7 +167,9 @@ def scan_top_movers(self):
             return {'trades_executed': 0, 'error': 'BinanceClient not available'}
         
         # Obtener datos de todos los símbolos
+        logger.info("📊 Obteniendo datos de mercado para todos los símbolos...")
         all_market_data = get_all_market_data()
+        logger.info(f"📈 Datos obtenidos para {len(all_market_data)} símbolos")
         
         # Escanear top movers
         top_movers = top_movers_strategy.scan_top_movers(all_market_data)
@@ -165,34 +178,43 @@ def scan_top_movers(self):
         
         for analysis in top_movers:
             try:
+                symbol = analysis['symbol']
+                logger.info(f"🎯 Top Mover confirmado: {symbol} - {analysis['price_change_percent']:.2f}% - Score: {analysis.get('final_score', 0):.2f}")
+                
                 # Notificar por Telegram
                 if telegram_notifier:
                     telegram_notifier.notify_top_mover_detected(analysis)
                 
                 # Verificar si debemos operar
                 if top_movers_strategy.should_trade_top_mover(analysis):
+                    logger.info(f"💰 Evaluando operación en Top Mover {symbol}...")
                     # Obtener balance de cuenta
                     balance = binance_client.get_account_balance()
                     position_size = top_movers_strategy.calculate_position_size(analysis, balance['USDT'])
                     
                     if position_size > 0:
+                        logger.info(f"💸 Ejecutando operación en Top Mover {symbol} - Tamaño: ${position_size:.2f}")
                         # Ejecutar trade
-                        execute_top_mover_trade.delay(analysis['symbol'], analysis, position_size)
+                        execute_top_mover_trade.delay(symbol, analysis, position_size)
                         trades_executed += 1
+                    else:
+                        logger.info(f"⚠️ {symbol}: Posición calculada es 0, no operando")
+                else:
+                    logger.info(f"❌ {symbol}: No cumple criterios para operar")
                 
             except Exception as e:
-                logger.error(f"Error processing top mover {analysis['symbol']}: {e}")
+                logger.error(f"Error processing top mover {analysis.get('symbol', 'unknown')}: {e}")
                 continue
         
-        logger.info(f"Top movers scan completed. Trades executed: {trades_executed}")
+        logger.info(f"✅ Escaneo de Top Movers completado: {len(top_movers)} top movers encontrados, {trades_executed} operaciones ejecutadas")
         
         # Actualizar progreso
         self.update_state(
             state='SUCCESS',
-            meta={'trades_executed': trades_executed}
+            meta={'top_movers_found': len(top_movers), 'trades_executed': trades_executed}
         )
         
-        return {'trades_executed': trades_executed}
+        return {'top_movers_found': len(top_movers), 'trades_executed': trades_executed}
         
     except Exception as e:
         logger.error(f"Error in top movers scan: {e}")

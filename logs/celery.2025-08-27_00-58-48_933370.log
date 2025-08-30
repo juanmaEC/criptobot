@@ -1,0 +1,152 @@
+2025-08-27 00:58:48.777 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 00:59:06.752 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 00:59:06.799 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 00:59:21.557 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 00:59:21.850 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 00:59:36.417 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 00:59:37.106 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 00:59:50.521 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 00:59:51.341 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:00:05.234 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:00:05.938 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:00:19.399 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:00:19.910 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:00:33.907 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:00:34.244 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:00:47.767 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:00:48.274 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:01:01.768 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:01:02.099 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:01:15.616 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:01:16.639 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:01:30.267 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:01:31.365 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:01:44.391 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:01:45.453 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:01:58.649 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:01:59.522 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:02:12.651 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:02:13.471 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:02:27.286 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:02:27.603 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:02:41.529 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:02:41.529 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:02:56.071 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:02:56.071 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:03:09.272 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:03:09.484 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:03:21.568 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:03:21.977 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:03:33.603 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:03:34.060 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:03:45.781 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:03:46.274 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:03:58.536 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:03:59.294 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:04:11.341 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:04:11.744 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:04:24.339 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:04:24.339 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:04:36.422 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:04:36.421 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:04:49.837 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:04:49.852 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:05:02.076 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:05:02.787 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:05:14.516 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:05:15.292 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:05:27.012 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:05:27.828 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:05:39.803 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:05:40.418 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:05:52.201 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:05:52.917 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:06:04.076 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:06:05.208 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:06:17.108 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:06:18.269 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:06:29.577 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:06:30.908 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:06:41.556 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:06:42.991 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:06:54.065 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:06:55.725 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:07:06.952 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:07:08.283 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:07:19.855 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:07:20.878 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:07:32.144 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:07:33.065 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:07:44.021 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:07:45.147 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:07:56.207 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:07:57.948 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:08:09.425 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:08:10.747 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:08:23.140 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:08:24.470 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:08:38.091 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:08:39.217 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:08:53.658 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 01:08:54.892 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:13:45.179 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:13:45.196 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:13:58.080 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:13:58.223 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:14:08.695 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:14:08.909 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:14:19.777 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:14:19.886 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:14:31.127 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:14:31.140 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:14:41.716 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:14:41.819 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:14:52.166 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:14:52.735 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:15:03.586 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:15:04.427 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:15:14.479 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:15:15.200 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:15:27.323 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:15:27.479 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:15:40.236 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:15:40.380 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:15:51.131 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:15:51.131 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:16:01.520 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:16:01.642 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:16:11.715 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:16:11.884 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:16:22.294 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:16:22.459 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:16:32.533 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:16:32.669 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:16:43.136 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:16:43.238 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:16:53.733 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:16:53.748 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:17:04.404 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:17:04.406 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:52:16.905 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:52:16.910 | ERROR    | celery_app:<module>:51 - Failed to initialize BinanceClient: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:52:16.929 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:52:16.933 | ERROR    | celery_app:<module>:51 - Failed to initialize BinanceClient: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:52:16.936 | INFO     | notifications.telegram_bot:initialize_bot:24 - Telegram bot initialized successfully
+2025-08-27 02:52:16.937 | INFO     | celery_app:<module>:58 - TelegramNotifier initialized successfully
+2025-08-27 02:52:16.955 | INFO     | notifications.telegram_bot:initialize_bot:24 - Telegram bot initialized successfully
+2025-08-27 02:52:16.956 | INFO     | celery_app:<module>:58 - TelegramNotifier initialized successfully
+2025-08-27 02:52:29.842 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:52:29.857 | ERROR    | celery_app:<module>:51 - Failed to initialize BinanceClient: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-27 02:52:29.908 | INFO     | notifications.telegram_bot:initialize_bot:24 - Telegram bot initialized successfully
+2025-08-27 02:52:29.909 | INFO     | celery_app:<module>:58 - TelegramNotifier initialized successfully
+2025-08-27 02:53:00.050 | INFO     | celery_app:scan_pumps:73 - Starting pump scan...
+2025-08-27 02:53:00.054 | ERROR    | celery_app:scan_pumps:83 - BinanceClient not available. Cannot perform pump scan.
+2025-08-27 02:53:30.021 | ERROR    | celery_app:monitor_open_trades:348 - BinanceClient not available. Cannot monitor open trades.
+2025-08-27 02:53:30.024 | INFO     | celery_app:scan_pumps:73 - Starting pump scan...
+2025-08-27 02:53:30.025 | ERROR    | celery_app:scan_pumps:83 - BinanceClient not available. Cannot perform pump scan.
+2025-08-27 02:54:00.043 | INFO     | celery_app:scan_pumps:73 - Starting pump scan...
+2025-08-27 02:54:00.048 | ERROR    | celery_app:scan_pumps:83 - BinanceClient not available. Cannot perform pump scan.
+2025-08-28 01:26:31.450 | ERROR    | trading.binance_client:initialize_exchange:33 - Error initializing Binance client: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-28 01:26:31.455 | ERROR    | celery_app:<module>:51 - Failed to initialize BinanceClient: binance {"code":-2008,"msg":"Invalid Api-Key ID."}
+2025-08-28 01:26:31.497 | INFO     | notifications.telegram_bot:initialize_bot:24 - Telegram bot initialized successfully
+2025-08-28 01:26:31.498 | INFO     | celery_app:<module>:58 - TelegramNotifier initialized successfully

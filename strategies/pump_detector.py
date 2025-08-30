@@ -16,12 +16,14 @@ class PumpDetector:
         """Detecta si hay un pump en el símbolo dado"""
         try:
             if len(market_data) < 30:
+                logger.debug(f"🔍 Revisando {symbol}: Datos insuficientes ({len(market_data)} < 30)")
                 return None
             
             # Obtener datos recientes
             recent_data = market_data.tail(self.config.PUMP_TIME_WINDOW // 60 + 10)  # +10 para margen
             
             if len(recent_data) < 5:
+                logger.debug(f"🔍 Revisando {symbol}: Datos recientes insuficientes ({len(recent_data)} < 5)")
                 return None
             
             # Calcular cambio de precio en ventana de tiempo
@@ -34,6 +36,9 @@ class PumpDetector:
             current_volume = recent_data.iloc[-1]['volume']
             volume_multiplier = current_volume / avg_volume if avg_volume > 0 else 0
             
+            # Log detallado de análisis
+            logger.info(f"🔍 Analizando {symbol}: Cambio {price_change_percent:.2f}%, Volumen {volume_multiplier:.2f}x, Precio ${end_price:.6f}")
+            
             # Verificar condiciones de pump
             is_pump = (
                 price_change_percent >= self.config.PUMP_THRESHOLD_PERCENT and
@@ -45,6 +50,7 @@ class PumpDetector:
                 # Verificar si ya fue detectado recientemente
                 pump_key = f"{symbol}_{datetime.now().strftime('%Y%m%d_%H%M')}"
                 if pump_key in self.detected_pumps:
+                    logger.info(f"🚫 {symbol}: Pump ya detectado recientemente")
                     return None
                 
                 self.detected_pumps.add(pump_key)
@@ -65,9 +71,13 @@ class PumpDetector:
                 # Guardar señal en base de datos
                 self._save_pump_signal(pump_info)
                 
-                logger.info(f"PUMP DETECTED: {symbol} - {price_change_percent:.2f}% in {self.config.PUMP_TIME_WINDOW//60}min, Volume: {volume_multiplier:.2f}x")
+                logger.info(f"🚀 PUMP DETECTADO: {symbol} - {price_change_percent:.2f}% en {self.config.PUMP_TIME_WINDOW//60}min, Volumen: {volume_multiplier:.2f}x")
                 
                 return pump_info
+            else:
+                # Log cuando no cumple criterios
+                if price_change_percent >= self.config.PUMP_THRESHOLD_PERCENT * 0.8:  # Cerca del umbral
+                    logger.debug(f"⚠️ {symbol}: Cerca del pump - Cambio {price_change_percent:.2f}% (umbral {self.config.PUMP_THRESHOLD_PERCENT}%), Volumen {volume_multiplier:.2f}x (umbral {self.config.PUMP_VOLUME_MULTIPLIER}x)")
             
             return None
             
